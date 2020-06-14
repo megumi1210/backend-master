@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--配置时顺序不能颠倒-->
+<configuration>
+    <properties/> <!--设置属性-->
+
+<!--    <settings>-->
+<!--        <setting name="" value=""/> 设置属性-->
+<!--    </settings>-->
+
+    <typeAliases> <!--设置别名-->
+         <typeAlias type="org.example.model.Role" alias="role"/>
+    </typeAliases>
+    <typeHandlers/> <!-- 设置类型转换器-->
+
+
+<!--    <plugins>-->
+<!--        <plugin interceptor=""></plugin> 设置插件-->
+<!--    </plugins>-->
+    <!--数据库环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/backend"/>
+                <property name="username" value="root"/>
+                <property name="password" value="cjg1210cjg"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/RoleMapper.xml"/>
+    </mappers>
+</configuration>
