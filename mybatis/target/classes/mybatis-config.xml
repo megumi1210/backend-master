@@ -4,21 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!--配置时顺序不能颠倒-->
 <configuration>
-    <properties/> <!--设置属性-->
+    <!--设置属性,可以从Properties文件导入，使用el表达式引入-->
+<!--    <properties resource=""/>-->
 
-<!--    <settings>-->
+<!--    <settings>-->  <!-- https://mybatis.org/mybatis-3/zh/configuration.html-->
 <!--        <setting name="" value=""/> 设置属性-->
 <!--    </settings>-->
 
     <typeAliases> <!--设置别名-->
          <typeAlias type="org.example.model.Role" alias="role"/>
     </typeAliases>
-    <typeHandlers/> <!-- 设置类型转换器-->
+
+    <typeHandlers>  <!-- 设置类型转换器-->
+    <!--导入自定义类型转换器，使用时通过resultMap-->
+   <typeHandler handler="org.example.typehandler.CustomTypeHandler" jdbcType="VARCHAR" javaType="string"/>
+
+    </typeHandlers>
 
 
 <!--    <plugins>-->
 <!--        <plugin interceptor=""></plugin> 设置插件-->
 <!--    </plugins>-->
+
+    <objectFactory type="org.example.objectfactory.CustomObjectFactory">
+        <property name="prop1" value="value1"/>
+    </objectFactory><!--对象工厂-->
     <!--数据库环境-->
     <environments default="development">
         <environment id="development">
@@ -31,6 +41,7 @@
             </dataSource>
         </environment>
     </environments>
+<!--    <databaseIdProvider type=""/>  &lt;!&ndash;数据库厂商的标识&ndash;&gt;-->
     <mappers>
         <mapper resource="mapper/RoleMapper.xml"/>
     </mappers>
