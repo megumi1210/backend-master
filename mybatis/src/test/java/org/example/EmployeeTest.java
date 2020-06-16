@@ -67,7 +67,7 @@ public class EmployeeTest
     public void testCascade(){
         openSession(session -> {
              EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
-             logger.info(mapper.findEmployeeById(7L));
+            mapper.findEmployeeById(6L);
         });
 
     }

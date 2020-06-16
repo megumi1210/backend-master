@@ -16,18 +16,18 @@ public class FemaleHealthForm  extends  AbstractHealthForm{
     }
 
 
-    @Override
-    public String toString() {
-        return "FemaleHealthForm{" +
-                "id=" + getId() +
-                ", empId=" + getEmpId() +
-                ", heart='" + getHeart() + '\'' +
-                ", liver='" + getLiver() + '\'' +
-                ", spleen='" + getSpleen() + '\'' +
-                ", lung='" + getLung() + '\'' +
-                ", kidney='" +getKidney() + '\'' +
-                ", note='" + getNote() + '\'' +
-                ", uterus='"+uterus + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "FemaleHealthForm{" +
+//                "id=" + getId() +
+//                ", empId=" + getEmpId() +
+//                ", heart='" + getHeart() + '\'' +
+//                ", liver='" + getLiver() + '\'' +
+//                ", spleen='" + getSpleen() + '\'' +
+//                ", lung='" + getLung() + '\'' +
+//                ", kidney='" +getKidney() + '\'' +
+//                ", note='" + getNote() + '\'' +
+//                ", uterus='"+uterus + '\'' +
+//                '}';
+//    }
 }

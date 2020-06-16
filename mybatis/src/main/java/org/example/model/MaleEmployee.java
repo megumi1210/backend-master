@@ -18,20 +18,20 @@ public class MaleEmployee extends Employee {
         this.healthForm = healthForm;
     }
 
-    @Override
-    public String toString() {
-        return "MaleEmployee{" +
-                "id=" + getId() +
-                ", realName='" + getRealName() + '\'' +
-                ", sex=" + getSex() +
-                ", birthday=" + getBirthday() +
-                ", mobile='" + getMobile() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", position='" + getPosition() + '\'' +
-                ", note='" + getNote() + '\'' +
-                ", workCard=" + getWorkCard() +
-                ", employeeTasks=" + getEmployeeTasks() +
-                ", maleHealthForm=" + healthForm +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "MaleEmployee{" +
+//                "id=" + getId() +
+//                ", realName='" + getRealName() + '\'' +
+//                ", sex=" + getSex() +
+//                ", birthday=" + getBirthday() +
+//                ", mobile='" + getMobile() + '\'' +
+//                ", email='" + getEmail() + '\'' +
+//                ", position='" + getPosition() + '\'' +
+//                ", note='" + getNote() + '\'' +
+//                ", workCard=" + getWorkCard() +
+//                ", employeeTasks=" + getEmployeeTasks() +
+//                ", maleHealthForm=" + healthForm +
+//                '}';
+//    }
 }

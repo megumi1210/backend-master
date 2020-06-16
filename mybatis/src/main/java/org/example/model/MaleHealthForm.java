@@ -16,20 +16,20 @@ public class MaleHealthForm extends  AbstractHealthForm {
     }
 
 
-    @Override
-    public String toString() {
-        return "MaleHealthForm{" +
-                "id=" + getId() +
-                ", empId=" + getEmpId() +
-                ", heart='" + getHeart() + '\'' +
-                ", liver='" + getLiver() + '\'' +
-                ", spleen='" + getSpleen() + '\'' +
-                ", lung='" + getLung() + '\'' +
-                ", kidney='" +getKidney() + '\'' +
-                ", note='" + getNote() + '\'' +
-                ", prostate='"+prostate + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "MaleHealthForm{" +
+//                "id=" + getId() +
+//                ", empId=" + getEmpId() +
+//                ", heart='" + getHeart() + '\'' +
+//                ", liver='" + getLiver() + '\'' +
+//                ", spleen='" + getSpleen() + '\'' +
+//                ", lung='" + getLung() + '\'' +
+//                ", kidney='" +getKidney() + '\'' +
+//                ", note='" + getNote() + '\'' +
+//                ", prostate='"+prostate + '\'' +
+//                '}';
+//    }
 
 
 }

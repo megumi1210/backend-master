@@ -4,6 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--        对应要动态代理的接口-->
 <mapper namespace="org.example.mapper.RoleMapper">
+
+    <resultMap id="baseMap" type="org.example.model.Role">
+        <id property="id" column="id"/>
+        <result property="roleName" column="role_name"/>
+        <result property="note" column="note"/>
+        <collection property="users"   column="id" fetchType="lazy"
+                    select="org.example.mapper.UserMapper.getUsersByRid"/>
+
+    </resultMap>
+
   <insert id="insertRole" parameterType="role">
        insert into t_role (role_name ,note )
          values (#{roleName} ,#{note})
@@ -18,12 +28,17 @@
                where id=#{id}
     </update>
 
-    <select id="getRole" parameterType="long" resultType="role">
+    <select id="getRole" parameterType="long" resultMap="baseMap">
         select id,role_name as roleName ,note from t_role where id=#{id}
     </select>
 
     <select id="findRoles" parameterType="string" resultType="role">
          select id ,role_name as roleName ,note from t_role
          where role_name like concat(%',#{roleName},'%')
+    </select>
+
+    <select id="findRolesByUid" parameterType="long" resultMap="baseMap">
+        select r.id , r.role_name ,r.note from t_role r ,t_user_role ur
+               where  r.id = ur.rid and ur.uid=#{uid}
     </select>
 </mapper>

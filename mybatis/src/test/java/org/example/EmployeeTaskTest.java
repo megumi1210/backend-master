@@ -31,7 +31,7 @@ public class EmployeeTaskTest {
             employeeTask.setTaskId(2L);
             employeeTask.setTaskName("任务名2");
             employeeTask.setNote("测试任务2");
-            logger.info(mapper.insertRecord(employeeTask));
+            mapper.insertRecord(employeeTask);
         });
     }
 
@@ -39,7 +39,9 @@ public class EmployeeTaskTest {
     public void testSelect(){
         openSession(session -> {
             EmployeeTaskMapper mapper = session.getMapper(EmployeeTaskMapper.class);
-            logger.info(mapper.selectRecordById(1L));
+            //toString() 方法会使得懒加载失效
+            mapper.selectRecordById(1L);
+
         });
     }
 

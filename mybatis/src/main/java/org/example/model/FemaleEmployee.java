@@ -19,20 +19,20 @@ public class FemaleEmployee extends Employee {
         this.healthForm = healthForm;
     }
 
-    @Override
-    public String toString() {
-        return "FemaleEmployee{" +
-                "id=" + getId() +
-                ", realName='" + getRealName() + '\'' +
-                ", sex=" + getSex() +
-                ", birthday=" + getBirthday() +
-                ", mobile='" + getMobile() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", position='" + getPosition() + '\'' +
-                ", note='" + getNote() + '\'' +
-                ", workCard=" + getWorkCard() +
-                ", employeeTasks=" + getEmployeeTasks() +
-                ", femaleHealthForm=" + healthForm +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "FemaleEmployee{" +
+//                "id=" + getId() +
+//                ", realName='" + getRealName() + '\'' +
+//                ", sex=" + getSex() +
+//                ", birthday=" + getBirthday() +
+//                ", mobile='" + getMobile() + '\'' +
+//                ", email='" + getEmail() + '\'' +
+//                ", position='" + getPosition() + '\'' +
+//                ", note='" + getNote() + '\'' +
+//                ", workCard=" + getWorkCard() +
+//                ", employeeTasks=" + getEmployeeTasks() +
+//                ", femaleHealthForm=" + healthForm +
+//                '}';
+//    }
 }

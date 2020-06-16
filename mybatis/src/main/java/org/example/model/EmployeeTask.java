@@ -63,15 +63,15 @@ public class EmployeeTask {
     }
 
 
-    @Override
-    public String toString() {
-        return "EmployeeTask{" +
-                "id=" + id +
-                ", empId=" + empId +
-                ", taskId=" + taskId +
-                ", taskName='" + taskName + '\'' +
-                ", note='" + note + '\'' +
-                ", task=" + task +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "EmployeeTask{" +
+//                "id=" + id +
+//                ", empId=" + empId +
+//                ", taskId=" + taskId +
+//                ", taskName='" + taskName + '\'' +
+//                ", note='" + note + '\'' +
+//                ", task=" + task +
+//                '}';
+//    }
 }

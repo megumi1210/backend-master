@@ -7,9 +7,12 @@
     <!--设置属性,可以从Properties文件导入，使用el表达式引入-->
 <!--    <properties resource=""/>-->
 
-<!--    <settings>-->  <!-- https://mybatis.org/mybatis-3/zh/configuration.html-->
-<!--        <setting name="" value=""/> 设置属性-->
-<!--    </settings>-->
+<!--    https://mybatis.org/mybatis-3/-->
+    <settings>
+        <!--全局的懒加载配置-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
 
     <typeAliases> <!--设置别名-->
          <typeAlias type="org.example.model.Role" alias="role"/>
@@ -43,12 +46,13 @@
     </environments>
 <!--    <databaseIdProvider type=""/>  &lt;!&ndash;数据库厂商的标识&ndash;&gt;-->
     <mappers>
-        <mapper resource="mapper/RoleMapper.xml"/>
         <mapper resource="mapper/EmployeeMapper.xml"/>
         <mapper resource="mapper/WorkCardMapper.xml"/>
         <mapper resource="mapper/TaskMapper.xml"/>
         <mapper resource="mapper/EmployeeTaskMapper.xml"/>
         <mapper resource="mapper/MaleHealthFormMapper.xml"/>
         <mapper resource="mapper/FemaleHealthFormMapper.xml"/>
+        <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/RoleMapper.xml"/>
     </mappers>
 </configuration>

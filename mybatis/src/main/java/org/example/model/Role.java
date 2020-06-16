@@ -1,12 +1,27 @@
 package org.example.model;
 
+import java.util.List;
+
 /**
  *   测试用的pojo类
+ * @author chenj
  */
 public class Role {
     private Long id;
     private String roleName;
-    private  String note;
+    private String note;
+    /**
+     *  一对多测试，用于多对多级联
+     */
+    private List<User> users;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
 
     public Long getId() {
         return id;
@@ -30,5 +45,14 @@ public class Role {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                ", note='" + note + '\'' +
+                '}';
     }
 }

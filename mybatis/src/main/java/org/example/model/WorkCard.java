@@ -68,16 +68,16 @@ public class WorkCard {
         this.note = note;
     }
 
-    @Override
-    public String toString() {
-        return "WorkCard{" +
-                "id=" + id +
-                ", empId=" + empId +
-                ", realName='" + realName + '\'' +
-                ", department='" + department + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", position='" + position + '\'' +
-                ", note='" + note + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "WorkCard{" +
+//                "id=" + id +
+//                ", empId=" + empId +
+//                ", realName='" + realName + '\'' +
+//                ", department='" + department + '\'' +
+//                ", mobile='" + mobile + '\'' +
+//                ", position='" + position + '\'' +
+//                ", note='" + note + '\'' +
+//                '}';
+//    }
 }

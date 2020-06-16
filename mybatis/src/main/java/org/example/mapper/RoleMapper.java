@@ -2,6 +2,7 @@ package org.example.mapper;
 
 
 import org.example.model.Role;
+import org.example.model.User;
 
 import java.util.List;
 
@@ -16,5 +17,8 @@ public interface RoleMapper {
      int updateRole(Role role);
      Role getRole(Long id);
      List<Role> findRoles(String roleName);
+
+     List<Role> findRolesByUid(Long uid);
+
 
 }
