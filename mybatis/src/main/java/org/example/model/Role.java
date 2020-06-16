@@ -1,12 +1,13 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *   测试用的pojo类
  * @author chenj
  */
-public class Role {
+public class Role  implements Serializable {
     private Long id;
     private String roleName;
     private String note;

@@ -24,7 +24,16 @@
     </delete>
 
     <update id="updateRole" parameterType="role">
-         update t_role from t_role set role_name = #{roleName} ,note=#{note}
+        <!--set元素遇到逗号会自动去除逗号，使用这种做法可以避免更新全部字段-->
+         update t_role
+              <set>
+                  <if test="roleName!=null and roleName!=''">
+                       role_name =#{roleName},
+                  </if>
+                  <if test="note!=null and  note!=''">
+                      note=#{note}
+                  </if>
+              </set>
                where id=#{id}
     </update>
 
@@ -32,13 +41,39 @@
         select id,role_name as roleName ,note from t_role where id=#{id}
     </select>
 
+    <!--动态sql测试-->
     <select id="findRoles" parameterType="string" resultType="role">
          select id ,role_name as roleName ,note from t_role
-         where role_name like concat(%',#{roleName},'%')
+<!--         where 1=1  这种方式比较奇怪-->
+<!--        <if test="roleName !=null and roleName!=''">-->
+<!--            and role_name like concat(%',#{roleName},'%')-->
+<!--        </if>-->
+         <where>
+             <if test="roleName != null and  roleName !=''">
+                 and role_name like concat('%',#{roleName},'%')
+             </if>
+             <if test="note !=null and note !='' ">
+                 and note like concat('%',#{note},'%')
+             </if>
+         </where>
     </select>
 
     <select id="findRolesByUid" parameterType="long" resultMap="baseMap">
         select r.id , r.role_name ,r.note from t_role r ,t_user_role ur
                where  r.id = ur.rid and ur.uid=#{uid}
     </select>
+
+    <!--使用动态SQL 的foreach in会损耗大量性能，所以要预估collection的长度，避免类似问题-->
+    <select id="findRolesByIds" resultMap="baseMap">
+         select * from t_role where id in
+           <foreach collection="ids" index="index" item="id"
+                     open="(" separator="," close=")">
+               #{id}
+           </foreach>
+    </select>
+
+    <!--开启二级缓存-->
+    <cache/>
+
+
 </mapper>

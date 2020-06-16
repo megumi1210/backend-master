@@ -1,11 +1,12 @@
 package org.example.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**多对多的测试案例
  * @author chenj
  */
-public class User {
+public class User implements Serializable {
 
     private Long id;
     private String username;

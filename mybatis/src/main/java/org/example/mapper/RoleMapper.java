@@ -1,6 +1,7 @@
 package org.example.mapper;
 
 
+import org.apache.ibatis.annotations.Param;
 import org.example.model.Role;
 import org.example.model.User;
 
@@ -19,6 +20,8 @@ public interface RoleMapper {
      List<Role> findRoles(String roleName);
 
      List<Role> findRolesByUid(Long uid);
+
+     List<Role> findRolesByIds( @Param("ids") List<Long> ids);
 
 
 }
