@@ -15,20 +15,20 @@
          <typeAlias type="org.example.model.Role" alias="role"/>
     </typeAliases>
 
-    <typeHandlers>  <!-- 设置类型转换器-->
-    <!--导入自定义类型转换器，使用时通过resultMap-->
-   <typeHandler handler="org.example.typehandler.CustomTypeHandler" jdbcType="VARCHAR" javaType="string"/>
+<!--    <typeHandlers>  &lt;!&ndash; 设置类型转换器&ndash;&gt;-->
+<!--    &lt;!&ndash;导入自定义类型转换器，使用时通过resultMap&ndash;&gt;-->
+<!--   <typeHandler handler="org.example.typehandler.CustomTypeHandler" jdbcType="VARCHAR" javaType="string"/>-->
 
-    </typeHandlers>
+<!--    </typeHandlers>-->
 
 
 <!--    <plugins>-->
 <!--        <plugin interceptor=""></plugin> 设置插件-->
 <!--    </plugins>-->
 
-    <objectFactory type="org.example.objectfactory.CustomObjectFactory">
-        <property name="prop1" value="value1"/>
-    </objectFactory><!--对象工厂-->
+<!--    <objectFactory type="org.example.objectfactory.CustomObjectFactory">-->
+<!--        <property name="prop1" value="value1"/>-->
+<!--    </objectFactory>&lt;!&ndash;对象工厂&ndash;&gt;-->
     <!--数据库环境-->
     <environments default="development">
         <environment id="development">
@@ -44,5 +44,8 @@
 <!--    <databaseIdProvider type=""/>  &lt;!&ndash;数据库厂商的标识&ndash;&gt;-->
     <mappers>
         <mapper resource="mapper/RoleMapper.xml"/>
+        <mapper resource="mapper/EmployeeMapper.xml"/>
+        <mapper resource="mapper/WorkCardMapper.xml"/>
+        <mapper resource="mapper/TaskMapper.xml"/>
     </mappers>
 </configuration>

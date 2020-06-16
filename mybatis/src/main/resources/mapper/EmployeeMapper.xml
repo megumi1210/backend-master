@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.example.mapper.EmployeeMapper">
+
+    <resultMap id="baseMap" type="org.example.model.Employee"> <!--用于映射结果集，和级联-->
+        <id property="id" column="id"/>
+        <result property="realName" column="real_name"/>
+        <result property="sex" column="sex" typeHandler="org.example.typehandler.SexEnumTypeHandler" />
+        <result property="birthday" column="birthday"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="position" column="position"/>
+        <result property="note" column="note"/>
+        <!--一对一级联 id为要传入的参数,不需要自己写方法获取-->
+        <association property="workCard" column="id"
+                     select="org.example.mapper.WorkCardMapper.findWorkCardByEmpId"/>
+
+    </resultMap>
+
+    <sql id="empBase">
+        real_name,sex,birthday,mobile,email,position,note
+    </sql>
+
+    <insert id="insertEmployee" parameterType="org.example.model.Employee"
+                   keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        insert into t_employee(<include refid="empBase"/>)
+            values(#{emp.realName},#{emp.sex,typeHandler=org.example.typehandler.SexEnumTypeHandler},
+                   #{emp.birthday},#{emp.mobile},#{emp.email},#{emp.position},#{emp.note})
+    </insert>
+
+     <delete id="deleteEmployee" parameterType="long">
+         delete from t_employee where id=#{id}
+     </delete>
+
+
+    <update id="updateEmployee" parameterType="org.example.model.Employee">
+        update t_employee set
+          real_name = #{realName},sex=#{sex,typeHandler=org.example.typehandler.SexEnumTypeHandler},birthday=#{birthday},
+          mobile=#{mobile},email=#{email},position=#{position},note=#{note}
+         where id=#{id}
+    </update>
+
+    <select id="findEmployeeById" parameterType="long" resultMap="baseMap">
+         select id ,<include refid="empBase"/> from t_employee where id=#{id}
+    </select>
+
+
+
+</mapper>
