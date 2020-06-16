@@ -23,10 +23,10 @@ public class TaskTest {
         openSession(session -> {
             TaskMapper mapper = session.getMapper(TaskMapper.class);
             Task task = new Task();
-            task.setId(1L);
-            task.setTitle("标题");
-            task.setContext("抄书10遍");
-            task.setNote("这个人是个傻子");
+            task.setId(2L);
+            task.setTitle("标题2");
+            task.setContext("抄书10遍2");
+            task.setNote("这个人是个傻子2");
             logger.info(mapper.insertTask(task));
         });
     }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.MaleHealthFormMapper">
+
+    <resultMap id="baseMap" type="org.example.model.MaleHealthForm">
+        <id property="id" column="id"/>
+        <result property="empId" column="emp_id"/>
+        <result property="note" column="note"/>
+        <result property="heart" column="heart"/>
+        <result property="kidney" column="kidney"/>
+        <result property="liver" column="liver"/>
+        <result property="lung" column="lung"/>
+        <result property="prostate" column="prostate"/>
+        <result property="spleen" column="spleen"/>
+    </resultMap>
+
+    <sql id="sqlBase">
+         emp_id,heart,liver,spleen,lung,kidney,prostate,note
+    </sql>
+
+    <insert id="insertRecord" parameterType="org.example.model.MaleHealthForm"
+                  useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+         insert into t_male_health_form(<include refid="sqlBase"/>) values
+           (#{empId},#{heart},#{liver},#{spleen},#{lung},#{kidney},#{prostate},#{note})
+    </insert>
+
+    <select id="findRecordByEmpId" parameterType="long" resultMap="baseMap">
+        select id ,<include refid="sqlBase"/> from t_male_health_form where emp_id=#{id}
+    </select>
+
+</mapper>

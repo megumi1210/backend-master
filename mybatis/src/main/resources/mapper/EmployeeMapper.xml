@@ -16,7 +16,25 @@
         <!--一对一级联 id为要传入的参数,不需要自己写方法获取-->
         <association property="workCard" column="id"
                      select="org.example.mapper.WorkCardMapper.findWorkCardByEmpId"/>
+        <!--一对多级联 id为要传入的参数列，select为其他mapper中的方法-->
+        <collection property="employeeTasks" column="id"
+                    select="org.example.mapper.EmployeeTaskMapper.findEmployeeTasksByEmpId"/>
+        <!--鉴别器 根据条件选择，相当于switch case,column表示用哪个字段鉴别-->
+        <discriminator javaType="long" column="sex">
+            <case value="1" resultMap="maleEmployee"/>
+            <case value="0" resultMap="femaleEmployee"/>
+        </discriminator>
+    </resultMap>
 
+
+    <resultMap id="femaleEmployee" type="org.example.model.FemaleEmployee" extends="baseMap">
+        <association property="healthForm" column="id"
+                     select="org.example.mapper.FemaleHealthFormMapper.findRecordByEmpId"/>
+    </resultMap>
+
+    <resultMap id="maleEmployee" type="org.example.model.MaleEmployee" extends="baseMap">
+        <association property="healthForm" column="id"
+                     select="org.example.mapper.MaleHealthFormMapper.findRecordByEmpId"/>
     </resultMap>
 
     <sql id="empBase">

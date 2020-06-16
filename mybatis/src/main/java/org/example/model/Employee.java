@@ -23,10 +23,7 @@ public class Employee {
      *  与工牌表一对一级联
      */
     private WorkCard workCard;
-    /**
-     *  与健康表一对一级联分男性和女性
-     */
-    private AbstractHealthForm healthForm;
+
     /**
      *  与员工任务表一对多级联
      */
@@ -40,13 +37,7 @@ public class Employee {
         this.workCard = workCard;
     }
 
-    public AbstractHealthForm getHealthForm() {
-        return healthForm;
-    }
 
-    public void setHealthForm(AbstractHealthForm healthForm) {
-        this.healthForm = healthForm;
-    }
 
     public List<EmployeeTask> getEmployeeTasks() {
         return employeeTasks;
@@ -132,7 +123,6 @@ public class Employee {
                 ", position='" + position + '\'' +
                 ", note='" + note + '\'' +
                 ", workCard=" + workCard +
-                ", healthForm=" + healthForm +
                 ", employeeTasks=" + employeeTasks +
                 '}';
     }

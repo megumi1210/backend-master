@@ -38,12 +38,12 @@ public class EmployeeTest
                 Employee employee = new Employee();
                // SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
                 employee.setBirthday(new Date(new java.util.Date().getTime()));
-                employee.setEmail("123@qq.com");
+                employee.setEmail("456@qq.com");
                 employee.setMobile("77443518");
-                employee.setNote("这是个懒人");
-                employee.setRealName("tom");
-                employee.setPosition("社畜");
-                employee.setSex(SexEnum.MALE);
+                employee.setNote("这是个美人");
+                employee.setRealName("lily");
+                employee.setPosition("看板娘");
+                employee.setSex(SexEnum.FEMALE);
                 logger.info(employeeMapper.insertEmployee(employee));
             });
     }
@@ -67,7 +67,7 @@ public class EmployeeTest
     public void testCascade(){
         openSession(session -> {
              EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
-             logger.info(mapper.findEmployeeById(6L));
+             logger.info(mapper.findEmployeeById(7L));
         });
 
     }

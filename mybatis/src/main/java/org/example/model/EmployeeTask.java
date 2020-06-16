@@ -1,6 +1,6 @@
 package org.example.model;
 
-import sun.util.resources.cldr.guz.LocaleNames_guz;
+
 
 /**
  * @author chenj
@@ -12,6 +12,15 @@ public class EmployeeTask {
     private Long taskId;
     private String taskName;
     private String note;
+    private Task task;
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
     public Long getId() {
         return id;
@@ -51,5 +60,18 @@ public class EmployeeTask {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+
+    @Override
+    public String toString() {
+        return "EmployeeTask{" +
+                "id=" + id +
+                ", empId=" + empId +
+                ", taskId=" + taskId +
+                ", taskName='" + taskName + '\'' +
+                ", note='" + note + '\'' +
+                ", task=" + task +
+                '}';
     }
 }
