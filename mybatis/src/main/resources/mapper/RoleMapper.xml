@@ -52,9 +52,9 @@
              <if test="roleName != null and  roleName !=''">
                  and role_name like concat('%',#{roleName},'%')
              </if>
-             <if test="note !=null and note !='' ">
-                 and note like concat('%',#{note},'%')
-             </if>
+<!--             <if test="note !=null and note !='' ">-->
+<!--                 and note like concat('%',#{note},'%')-->
+<!--             </if>-->
          </where>
     </select>
 

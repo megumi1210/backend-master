@@ -4,6 +4,7 @@ package org.example.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.example.model.Role;
 import org.example.model.User;
+import org.example.page.PageParams;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface RoleMapper {
      int deleteRole(Long id);
      int updateRole(Role role);
      Role getRole(Long id);
-     List<Role> findRoles(String roleName);
+     List<Role> findRoles(PageParams pageParams,@Param("roleName") String roleName);
 
      List<Role> findRolesByUid(Long uid);
 

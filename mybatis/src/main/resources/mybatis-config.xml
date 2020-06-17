@@ -24,10 +24,20 @@
 
 <!--    </typeHandlers>-->
 
+<!--    设置插件-->
+    <plugins>
+<!--        <plugin interceptor="org.example.interceptor.CustomPlugin">-->
+<!--            <property name="hello" value="world"/>-->
+<!--        </plugin>-->
 
-<!--    <plugins>-->
-<!--        <plugin interceptor=""></plugin> 设置插件-->
-<!--    </plugins>-->
+        <plugin interceptor="org.example.page.PagePlugin">
+            <property name="default.page" value="1"/>
+            <property name="default.pageSize" value="20"/>
+            <property name="default.useFlag" value="true"/>
+            <property name="default.checkFlag" value="false"/>
+            <property name="default.cleanOrderBy" value="false"/>
+        </plugin>
+    </plugins>
 
 <!--    <objectFactory type="org.example.objectfactory.CustomObjectFactory">-->
 <!--        <property name="prop1" value="value1"/>-->

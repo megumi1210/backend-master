@@ -6,6 +6,7 @@ import org.example.mapper.RoleMapper;
 import org.example.mapper.UserMapper;
 import org.example.model.Role;
 import org.example.model.User;
+import org.example.page.PageParams;
 import org.example.utils.SqlSessionFactoryUtils;
 import org.junit.Test;
 
@@ -41,6 +42,32 @@ public class RoleTest {
              ids.add(1L);
              ids.add(2L);
              logger.info(mapper.findRolesByIds(ids));
+         });
+    }
+
+    @Test
+    public void testInsert(){
+        openSession(session -> {
+            RoleMapper mapper = session.getMapper(RoleMapper.class);
+
+            for(int i = 0 ;i<100 ;i++){
+                 Role role  = new Role();
+                 role.setRoleName("role"+i);
+                 role.setNote(""+i);
+                 mapper.insertRole(role);
+            }
+
+        });
+    }
+
+    @Test
+    public void testPagePlugin(){
+         openSession(session -> {
+             RoleMapper mapper = session.getMapper(RoleMapper.class);
+             PageParams pageParams = new PageParams();
+             pageParams.setPageSize(10);
+             List<Role> roles = mapper.findRoles(pageParams,"role");
+             logger.info(roles.size());
          });
     }
 }
