@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserMapper">
+
+    <resultMap id="baseMap" type="org.example.model.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="realName" column="real_name"/>
+        <result property="sex" column="sex" typeHandler="org.example.typehandler.SexEnumTypeHandler"/>
+        <result property="email" column="email"/>
+        <result property="mobile" column="mobile"/>
+        <result property="note" column="note"/>
+        <!--多对多测试,分成两个一对多-->
+        <collection property="roles" column="id" fetchType="lazy"
+                     select="org.example.mapper.RoleMapper.findRolesByUid"/>
+    </resultMap>
+
+
+    <select id="getUserById" parameterType="long" resultMap="baseMap">
+         select id,username,real_name,sex,email,mobile,note from t_user where id=#{id}
+    </select>
+
+    <!-- 含有三张表的连接操作-->
+    <select id="getUsersByRid" parameterType="long" resultMap="baseMap">
+         select u.id,u.username,u.real_name,u.sex,u.email,u.mobile,u.note
+                   from t_user u,t_user_role ur
+                   where u.id = ur.uid and ur.rid =#{rid}
+    </select>
+
+</mapper>

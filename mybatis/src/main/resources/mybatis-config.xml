@@ -23,7 +23,9 @@
 <!--   <typeHandler handler="org.example.typehandler.CustomTypeHandler" jdbcType="VARCHAR" javaType="string"/>-->
 
 <!--    </typeHandlers>-->
-
+    <objectFactory type="org.example.objectfactory.CustomObjectFactory">
+        <property name="prop1" value="value1"/>
+    </objectFactory><!--对象工厂-->
 <!--    设置插件-->
     <plugins>
 <!--        <plugin interceptor="org.example.interceptor.CustomPlugin">-->
@@ -39,9 +41,7 @@
         </plugin>
     </plugins>
 
-<!--    <objectFactory type="org.example.objectfactory.CustomObjectFactory">-->
-<!--        <property name="prop1" value="value1"/>-->
-<!--    </objectFactory>&lt;!&ndash;对象工厂&ndash;&gt;-->
+
     <!--数据库环境-->
     <environments default="development">
         <environment id="development">
